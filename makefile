@@ -1,11 +1,12 @@
 PREFIX = /usr
 TARGET = $(DESTDIR)$(PREFIX)/include/defy/
 
-everything: constant expect noreturn restrict
+everything = constant expect noreturn restrict
+everything: $(everything)
 
 install: $(everything)
 	mkdir -p $(TARGET)
-	cp $> $(TARGET)
+	cp $(everything) $(TARGET)
 
 .h:
 	sed -e '1i#pragma once\n#ifndef __defy_$*__\n#define __defy_$*__\n' \
