@@ -1,0 +1,31 @@
+#pragma once
+#ifndef __defy_offsetof__
+#define __defy_offsetof__
+
+/**
+ * \def offsetof (type, member)
+ *
+ * \brief Determine offset of member in compound data type.
+ *
+ * \param type   Data type.
+ * \param member Compound member.
+ *
+ * \return Byte offset.
+ */
+
+#if !defined offsetof
+#	if __STDC_HOSTED__
+#		if defined __cplusplus
+#			include <cstddef>
+#		else
+#			include <stddef.h>
+#		endif
+#	elif defined __clang__ || defined __GNUC__
+#		define offsetof(type, member) __builtin_offsetof (type, member)
+#	else
+#		warning "Bad offsetof implementation"
+#		define offsetof(type, member) ((char *) &((type *) 0)->member - (char *) 0)
+#	endif
+#endif
+
+#endif
