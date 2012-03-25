@@ -10,7 +10,7 @@
 #	else
 #		define thread_local _Thread_local
 #	endif
-#elif defined __GNUC__
+#elif defined __GNUC__ || defined __clang__
 #	define thread_local __thread
 #else
 #	error "No thread_local implementation"
