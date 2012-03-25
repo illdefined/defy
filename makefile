@@ -1,7 +1,7 @@
 PREFIX = /usr
 TARGET = $(DESTDIR)$(PREFIX)/include/defy/
 
-everything = bool constant expect nil noreturn offsetof restrict
+everything = bool constant expect nil noreturn offsetof restrict thread_local
 everything: $(everything)
 
 install: $(everything)
