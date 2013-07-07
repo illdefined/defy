@@ -4,7 +4,7 @@
  * \brief Thread-local storage class.
  */
 
-#if __STDC_VERSION__ >= 201000L
+#if __STDC_VERSION__ >= 201000L && !defined __STDC_NO_THREADS__
 #	if __STDC_HOSTED__
 #		include <threads.h>
 #	else
