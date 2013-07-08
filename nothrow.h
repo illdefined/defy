@@ -4,10 +4,14 @@
  * \brief Function does not throw exceptions.
  */
 
-#if !defined __cplusplus
-#	if defined __clang__ || defined __GNUC__
-#		define nothrow __attribute__ ((nothrow))
+#if defined __cplusplus
+#	if __cplusplus > 199711l
+#		define nothrow noexcept
 #	else
-#		define nothrow
+#		define nothrow throw()
 #	endif
+#elif defined __clang__ || defined __GNUC__
+#	define nothrow __attribute__ ((nothrow))
+#else
+#	define nothrow
 #endif
