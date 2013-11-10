@@ -1,5 +1,5 @@
 /**
- * \def defy_pure
+ * \def pure
  *
  * \brief Pure function
  *
@@ -8,7 +8,7 @@
  */
 
 #if defined __clang__ || defined __GNUC__
-#	define defy_pure __attribute__ ((pure))
+#	define pure __attribute__ ((pure))
 #else
-#	define defy_pure
+#	define pure
 #endif
